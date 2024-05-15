@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+    <link href="https://fonts.cdnfonts.com/css/lucida-handwriting-std" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/bradley-hand-2" rel="stylesheet">         
+    <style>
+        .title {
+            font-family: "Brush Script MT", "Brush Script Std", cursive; /* Change the font */
+            text-align: center; /* Align the text to the center */
+            font-size: 72px; /* Adjust the font size */
+            font-weight: bold; /* Make the text bold */
+            color: #333; /* Set the color of the text */
+            position: absolute; /* Position absolutely */
+            top: 30px; /* Add space from the top */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Center horizontally */
+            z-index: 9999; /* Ensure it appears above other elements */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow effect */
+        }
+
+        body {
+            margin-top: 300px;
+            padding: 0;
+            font-family: 'Lucida Handwriting Std', cursive; /* Change the font for text */
+            text-align: center;
+            transition: background-color 0.5s ease; /* Smooth transition for background color change */
+        }
+
+        h1 {
+            font-size: 64px; /* Adjust font size */
+            color: #333; /* Text color */
+            margin-top: 50px; /* Add margin to the top */
+        }
+
+        p {
+            font-size: 36px; /* Adjust font size */
+            color: #666; /* Text color */
+            margin-bottom: 50px; /* Add margin to the bottom */
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 200px;
+        }
+
+        .button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 250px;
+            height: 250px;
+            margin: 30px;
+            padding: 15px;
+            background-color: #fff;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none; /* Remove underline from anchor tag */
+            color: #333; /* Text color */
+            font-family: "Bradley Hand", sans-serif; /* Change the font for text */
+            font-size: 36px; /* Adjust font size */
+            transition: all 0.3s ease; /* Smooth transition */
+        }
+
+        .button:hover {
+            background-color: #f0f0f0; /* Light gray background on hover */
+            border-color: #999; /* Dark gray border on hover */
+        }
+
+        .button img {
+            max-width: 80px;
+            max-height: 80px;
+            margin-bottom: 10px;
+        }
+
+        .logout {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            padding: 10px 20px;
+            background-color: #fff;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: "Bradley Hand", sans-serif;
+            text-decoration: none; /* Remove underline from anchor tag */
+            color: #333; /* Text color */
+            transition: all 0.3s ease; /* Smooth transition */
+        }
+
+        .logout:hover {
+            background-color: #f0f0f0; /* Light gray background on hover */
+            border-color: #999; /* Dark gray border on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="title">HangOut</div>
+    
+    <h1>Welcome back to HangOut, {{ name }}!</h1>
+    <p>What would you like to do today?</p>
+
+    <script>
+        // JavaScript for dynamic background color change
+        function changeBackgroundColor() {
+            var body = document.body;
+            var currentTime = new Date().getSeconds(); // Use seconds for faster color change
+
+            // Calculate RGB values based on time
+            var r = Math.round(Math.sin(currentTime * Math.PI / 30) * 127 + 128);
+            var g = Math.round(Math.sin(currentTime * Math.PI / 30 + 2 * Math.PI / 3) * 127 + 128);
+            var b = Math.round(Math.sin(currentTime * Math.PI / 30 + 4 * Math.PI / 3) * 127 + 128);
+
+            // Set background color
+            body.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
+        }
+
+        // Call the function initially
+        changeBackgroundColor();
+
+        // Call the function every 100 milliseconds for smooth color change
+        setInterval(changeBackgroundColor, 100);
+    </script>
+
+    <a href='/logout' class="logout">Logout</a>
+
+    <div class="container">
+        <a href='/add_review' class="button">
+            <div>Add Review</div>
+        </a>
+        <a href='/transaction' class="button">
+            <div>Search Restaurant</div>
+        </a>
+        <a href='/search_restaurant' class="button">
+            <div>Advanced Search Restaurant</div>
+        </a>
+        <a href='/search_dish' class="button">
+            <div>Search Dish</div>
+        </a>
+        <a href='/modify_dish_data' class="button">
+            <div>Dish Modifications</div>
+        </a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurant Operations</title>
+    <link href="https://fonts.cdnfonts.com/css/bradley-hand-2" rel="stylesheet">
+    <style>
+        body {
+            background: #f0f0f0;
+            color: #333;
+            margin-top: 200px;
+            padding: 40px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h1 {
+            color: black;
+            text-align: center;
+            font-family: "Bradley Hand", sans-serif;
+            font-size: 64px;
+            font-weight: bold;
+        }
+
+        /* Style for forms container */
+        .forms-container {
+            display: flex; /* Use flexbox */
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .form-wrapper {
+            margin-bottom: 20px; /* Add some spacing between forms */
+            text-align: left; /* Center-align form content */
+        }
+
+        /* Style for each form */
+        .form-title {
+            margin-bottom: 20px; /* Add some spacing between forms */
+            text-align: center; /* Center-align form and title */
+            font-family: "Bradley Hand", sans-serif;
+            font-size: 32px;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 300px;
+            margin: 30px;
+        }
+
+        label {
+            color: black;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            font-family: "Arial", sans-serif;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Include padding and border in the element's width and height */
+            transition: border-color 0.3s;
+        }
+
+        input:hover {
+            border-color: black;
+        }
+
+        button {
+            background: black;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .home {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            padding: 10px 20px;
+            background: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-family: "Bradley Hand", sans-serif;
+            text-decoration: none; /* Remove underline from anchor tag */
+            transition: all 0.3s ease; /* Smooth transition */
+        }
+
+        .home:hover {
+            opacity: 0.8;
+        }
+
+        .dishes {
+            background: black;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        .dishes:hover {
+            opacity: 0.8;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Restaurant Operations</h1>
+    <a href='/' class="home">Home</a>
+    <!-- Form to add a new dish -->
+    <div class="forms-container">\
+        <div class="form-wrapper">
+            <h2 class="form-title">Add New Dish</h2>
+            <form method="POST" action="">
+                <label for="dish_id">Dish ID:</label><br>
+                <input type="number" name="dish_id_add" required><br><br>
+
+                <label for="restaurant_id">Restaurant ID:</label><br>
+                <input type="number" name="restaurant_id_add" required><br><br>
+
+                <label for="price">Price:</label><br>
+                <input type="number" step="0.01" name="price_add" required><br><br>
+
+                <label for="name">Dish Name:</label><br>
+                <input type="text" name="name_add" required><br><br>
+
+                <button type="submit">Add Dish</button>
+            </form>
+        </div>
+
+        <!-- Form to delete a dish -->
+        <div class="form-wrapper">
+            <h2 class="form-title">Delete Dish</h2>
+            <form method="POST" action="">
+                <label for="restaurant_id">Restaurant ID:</label><br>
+                <input type="number" name="restaurant_id_del" required><br><br>
+
+                <label for="dish_id">Dish ID:</label><br>
+                <input to="number" name="dish_id_del" required><br><br>
+
+                <button type="submit">Delete Dish</button>
+            </form>
+        </div>
+
+        <!-- Form to update a dish's price -->
+        <div class="form-wrapper">
+            <h2 class="form-title">Update Dish Price</h2>
+            <form method="POST" action="">
+                <label for="restaurant_id">Restaurant ID:</label><br>
+                <input type="number" name="restaurant_id_upd" required><br><br>
+
+                <label for="dish_id">Dish ID:</label><br>
+                <input to="number" name="dish_id_upd" required><br><br>
+
+                <label for="new_price">New Price:</label><br>
+                <input type="number" step="0.01" name="price_upd" required><br><br>
+
+                <button type="submit">Update Price</button>
+            </form>
+        </div>
+    </div>
+    <a href='/all_dishes' class="dishes">All Dishes</a>
+</body>
+</html>
