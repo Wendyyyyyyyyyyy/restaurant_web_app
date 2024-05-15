@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Review</title>
+    <link href="https://fonts.cdnfonts.com/css/bradley-hand-2" rel="stylesheet">
+    <style>
+        body {
+            background: #f0f0f0;
+            color: #333;
+            margin-top: 250px;
+            padding: 40px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h1 {
+            color: black;
+            text-align: center;
+            font-family: "Bradley Hand", sans-serif;
+            font-size: 64px;
+            font-weight: bold;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 300px;
+            margin: auto;
+        }
+
+        label {
+            color: black;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            font-family: "Arial", sans-serif;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Include padding and border in the element's width and height */
+            transition: border-color 0.3s;
+        }
+
+        input:hover, textarea:hover {
+            border-color: black;
+        }
+
+        .star-rating {
+            display: flex;
+            flex-direction: row-reverse; /* Reverse the order of stars */
+            justify-content: center;
+            margin: 10px 0;
+        }
+
+        .star-rating input[type="radio"] {
+            display: none;
+        }
+
+        .star-rating label {
+            font-size: 25px;
+            color: #ccc;
+            padding-right: 5px;
+            cursor: pointer;
+        }
+
+        .star-rating label:hover,
+        .star-rating label:hover ~ label,
+        .star-rating input[type="radio"]:checked ~ label {
+            color: #f5b301;
+        }
+
+        button {
+            background: black;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .home {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            padding: 10px 20px;
+            background: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-family: "Bradley Hand", sans-serif;
+            text-decoration: none; /* Remove underline from anchor tag */
+            transition: all 0.3s ease; /* Smooth transition */
+        }
+
+        .home:hover {
+            opacity: 0.8;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Add a Review</h1>
+    <a href='/' class="home">Home</a>
+    <form action="/add_review" method="post">
+        <label for="restaurantName">Restaurant Name:</label><br>
+        <input type="text" id="restaurantName" name="restaurantName" required><br><br>
+        <label>Stars (0 to 5):</label>
+        <div class="star-rating">
+            <input type="radio" id="star5" name="stars" value="5"><label for="star5">★</label>
+            <input type="radio" id="star4" name="stars" value="4"><label for="star4">★</label>
+            <input type="radio" id="star3" name="stars" value="3"><label for="star3">★</label>
+            <input type="radio" id="star2" name="stars" value="2"><label for="star2">★</label>
+            <input type="radio" id="star1" name="stars" value="1"><label for="star1">★</label>
+        </div>
+        <label for="text">Review:</label><br>
+        <textarea id="text" name="text" ></textarea><br><br>
+        <button type="submit">Submit Review</button>
+    </form>
+</body>
+</html>

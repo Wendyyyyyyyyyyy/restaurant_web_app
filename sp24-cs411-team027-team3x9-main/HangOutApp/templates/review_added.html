@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Review Added</title>
+</head>
+<body>
+    <h1>Review Successfully Added for {{ restaurant_name }}</h1>
+    <p>Your review: "{{ review_text }}"</p>
+    <p>Average Star Rating Before Your Review: {{ avg_stars_before|round(2) }}</p>
+    <p>Average Star Rating After Your Review: {{ avg_stars_after|round(2) }}</p>
+    <button onclick="location.href='/'">Back to Home</button>
+</body>
+</html>

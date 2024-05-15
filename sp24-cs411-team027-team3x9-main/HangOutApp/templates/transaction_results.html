@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurants & Crimes Results</title>
+</head>
+<body>
+
+    <h1>Restaurants in {{ location_name }} with star rating above {{ min_rating }}</h1>
+
+    {% if restaurant_results %}
+    <table>
+        <tr>
+            <th>Restaurant Name</th>
+            <th>Average Rating</th>
+        </tr>
+        {% for restaurant_result in restaurant_results %}
+        <tr>
+            <td>{{ restaurant_result[0] }}</td>
+            <td>{{ restaurant_result[1] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% else %}
+    <p>No restaurants found.</p>
+
+    {% endif %}
+
+    <br>
+
+    <h1>Crimes Information Results</h1>
+
+    {% if crime_results %}
+    <table>
+        <tr>
+            <th>Crime Type</th>
+            <th>Crime Count</th>
+        </tr>
+        {% for crime_result in crime_results %}
+        <tr>
+            <td>{{ crime_result[0] }}</td>
+            <td>{{ crime_result[1] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% else %}
+    <p>No Crimes Information found.</p>
+
+    {% endif %}
+
+</body>
+</html>

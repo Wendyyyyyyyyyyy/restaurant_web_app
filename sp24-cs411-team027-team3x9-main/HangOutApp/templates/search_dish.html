@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurant Information</title>
+    <link href="https://fonts.cdnfonts.com/css/bradley-hand-2" rel="stylesheet">
+    <style>
+        body {
+            background: #f0f0f0;
+            color: #333;
+            margin-top: 200px;
+            padding: 40px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h1 {
+            color: black;
+            text-align: center;
+            font-family: "Bradley Hand", sans-serif;
+            font-size: 64px;
+            font-weight: bold;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 300px;
+            margin: auto;
+        }
+
+        label {
+            color: black;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            font-family: "Arial", sans-serif;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Include padding and border in the element's width and height */
+            transition: border-color 0.3s;
+        }
+
+        input:hover {
+            border-color: black;
+        }
+
+        button {
+            background: black;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .home {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            padding: 10px 20px;
+            background: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-family: "Bradley Hand", sans-serif;
+            text-decoration: none; /* Remove underline from anchor tag */
+            transition: all 0.3s ease; /* Smooth transition */
+        }
+
+        .home:hover {
+            opacity: 0.8;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Search for Dish Information</h1>
+    <a href='/' class="home">Home</a>
+    <form method="POST">
+        <label for="dishName">Dish Name:</label><br>
+        <input type="text" id="dishName" name="dishName" required><br><br>
+        <button type="submit">Search</button>
+    </form>
+</body>
+</html>

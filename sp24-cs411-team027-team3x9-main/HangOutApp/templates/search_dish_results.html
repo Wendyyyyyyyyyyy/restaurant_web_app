@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurants & Crimes Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        th:first-child, td:first-child {
+            width: 20%;
+        }
+
+        /* Style for the bar chart */
+        .bar-chart {
+            width: 400px;
+            margin: 20px auto;
+        }
+
+        .bar {
+            margin-bottom: 10px;
+            height: 20px;
+            background-color: #007bff; /* Default color for bars */
+            color: #fff;
+            text-align: right;
+            line-height: 20px;
+        }
+
+        /* Style for labels */
+        .label {
+            float: left;
+            width: 100px;
+            text-align: right;
+            padding-right: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Restaurants that contains Dish: {{ dishName }}</h1>
+
+    {% if restaurant_results|length %}
+        {% for i in range(restaurant_results|length) %}
+            <table>
+                <tr>
+                    <th>RestaurantId</th>
+                    <th>RestaurantName</th>
+                    <th>City</th>
+                    <th>State</th>
+                </tr>
+                <tr>
+                    {% for j in range(restaurant_results[i]|length) %}
+                    <td>{{ restaurant_results[i][j] }}</td>
+                    {% endfor %}
+                </tr>
+            </table>
+
+            {% if crime_results[i] %}
+                <table>
+                    <tr>
+                        <th>CrimeType</th>
+                        <th>TotalIncidents</th>
+                        <th>AverageIncidents</th>
+                    </tr>
+                    {% for j in range(crime_results[i]|length) %}
+                    <tr>
+                        <!-- {% for k in range(crime_results[i][j]|length) %}
+                        <td>{{ crime_results[i][j][k] }}</td>
+                        {% endfor %} -->
+                        <td>{{ crime_results[i][j][0] }}</td>
+                        <td>{{ crime_results[i][j][1] }}</td>
+                        <td>{{ crime_results[i][j][2] }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+                <div class="bar-chart">
+                    {% for j in range(crime_results[i]|length) %}
+                        <div class="label">{{ crime_results[i][j][0] }}</div>
+                        <div class="bar" style="width: {{ crime_results[i][j][1] }}px;"></div>
+                    {% endfor %}
+                </div>
+
+            {% else %}
+                <p>No Crimes Information found related to the restaurant above.</p>
+            {% endif %}
+
+        {% endfor %}
+  
+    {% else %}
+    <p>No Restaurants Results Found.</p>
+
+    {% endif %}
+
+</body>
+</html>
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurant Results</title>
+    <style>
+        table {
+            width: 100%; /* Adjusts the width of the table to full width of its container */
+            table-layout: fixed; /* Ensures the table layout respects the width of the table and columns */
+        }
+        th, td {
+            width: 25%; /* Divides the width equally among the four columns */
+            text-align: left; /* Optional: aligns text to the left */
+            border-bottom: 1px solid #ddd; /* Adds a light border under each cell for better readability */
+        }
+    </style>
+</head>
+<body>
+    {% for i in range(restaurant_results|length) %}
+    <table>
+        <tr>
+            <th>RestaurantId</th>
+            <th>RestaurantName</th>
+            <th>City</th>
+            <th>State</th>
+        </tr>
+        <tr>
+            {% for j in range(restaurant_results[i]|length) %}
+            <td>{{ restaurant_results[i][j] }}</td>
+            {% endfor %}
+        </tr>
+    </table>
+    {% endfor %}
+</body>
+</html>
+ -->
